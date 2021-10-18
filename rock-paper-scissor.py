@@ -1,49 +1,59 @@
-#Password Generator Project
 import random as rd
-letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
 
-print("Welcome to the PyPassword Generator!")
-nr_letters= int(input("How many letters would you like in your password?\n")) 
-nr_symbols = int(input(f"How many symbols would you like?\n"))
-nr_numbers = int(input(f"How many numbers would you like?\n"))
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
 
-#Eazy Level - Order not randomised:
-#e.g. 4 letter, 2 symbol, 2 number = JduE&!91
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
 
+list1 = ["rock"+rock,"paper"+paper,"scissor"+scissors]
+i=int(input("enter 0 for rock,1 for paper and 2 for sessior\n"))
+if i>=3: 
+  print("Invalid Number")
+else :
+  print("valid number ")  
+  ur = list1[i]
+  print(ur)
 
-#Hard Level - Order of characters randomised:
-#e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+  com = rd.randint(0,2)
+  cm = list1[com]
+  print(cm)
 
-string = []
-for letter in range(1 , nr_letters + 1) :
-    randomNum = rd.randint(1,42)
-    letters[randomNum]
-    string += letters[randomNum]
-# print(string)
-
-symbol = []
-for symbo in range(1 , nr_symbols + 1) :
-    randomNum = rd.randint(0,8)
-    symbols[randomNum]
-    symbol += symbols[randomNum]
-# print(symbol)
-
-number = []
-for num in range(1, nr_numbers + 1) :
-    randomNum = rd.randint(0,9)
-    numbers[randomNum]
-    number += numbers[randomNum]
-# print(number)    
-
-last = string+symbol+number
-rd.shuffle(last)
-y=""
-for x in last:
-  y+=x
-print(f"Your Password is: {y}")  
-
+  if cm == ur :
+    print("Draw")
+  elif ur==list1[0] and cm==list1[1] :
+    print("you win ")
+  elif ur==list1[0] and cm==list1[2] :
+   print("you win ")
+  elif  ur==list1[1] and cm==list1[0] :
+   print("you win ")
+  elif   ur==list1[1] and cm==list1[2] :
+   print("Oops You loose")
+  elif  ur==list1[2] and cm==list1[0] :
+   print("you win ")
+  elif   ur==list1[2] and cm==list1[1] :
+   print("Oops You loose")
+  
 
 
    
